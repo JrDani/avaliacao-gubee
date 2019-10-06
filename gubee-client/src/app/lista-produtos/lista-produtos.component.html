@@ -1,0 +1,21 @@
+
+<h1>Listando produtos</h1>
+
+<table class="mt-4 table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Nome</th>       
+        <th scope="col">Descrição</th>     
+        <th scope="col">Mercado alvo</th>     
+        <th scope="col">Tecnologias utilizadas</th>     
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let produto of produtos">
+          <td><h4>{{ produto.productName}}</h4></td>
+          <td>{{ produto.description}}</td>
+          <td>{{ produto.targetMarket}}</td>
+          <td>{{ produto.stack }}</td>
+        </tr>
+    </tbody>
+</table>
