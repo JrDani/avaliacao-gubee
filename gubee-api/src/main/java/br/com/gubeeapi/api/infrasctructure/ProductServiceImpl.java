@@ -4,13 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import br.com.gubeeapi.domain.model.Product;
 import br.com.gubeeapi.domain.repository.ProductRepository;
 import br.com.gubeeapi.domain.repository.Specification.ProductFilter;
 import br.com.gubeeapi.domain.service.ProductService;
 
-@Component("productService")
+@Service("productService")
 public class ProductServiceImpl implements ProductService{
 
 	@Autowired
