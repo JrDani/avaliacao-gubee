@@ -1,7 +1,15 @@
 
 <h1>Listando produtos</h1>
 
-<table class="mt-4 table table-striped">
+<h3>Filtro</h3>
+
+<h4>Stacks</h4>
+<app-checkbox-group [items]="stacks" (toggle)="onStacksChange($event)"></app-checkbox-group>
+
+<h4>Target Market</h4>
+<app-checkbox-group [items]="targetMarket" (toggle)="onTargetMarketChange($event)"></app-checkbox-group>
+
+<table class="mt-4 table table-striped">   
     <thead>
     <tr>
         <th scope="col">Nome</th>       
