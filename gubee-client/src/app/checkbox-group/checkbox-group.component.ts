@@ -7,19 +7,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CheckboxGroupComponent implements OnInit {
 
-  @Input() items
+  @Input() items;
   @Input() selectedValues: string[];
   @Output() toggle = new EventEmitter<any[]>();
 
+  public componentId;
+ 
   constructor() { }
 
   ngOnInit() {
+    this.componentId = "C"+Math.random().toString(36).substring(2, 7);;
   }
 
   onToggle() {
-    const checkedOptions = this.items.filter(x => x.checked);
-    this.selectedValues = checkedOptions.map(x => x.value);
-    this.toggle.emit(checkedOptions.map(x => x.value));
+    const checkedOptions = this.items.filter(x => x.checked);  ;
+    this.selectedValues = checkedOptions.map(x => x.label);
+    this.toggle.emit(checkedOptions.map(x => x.label));
    }
 
    

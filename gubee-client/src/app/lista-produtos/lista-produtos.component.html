@@ -3,11 +3,17 @@
 
 <h3>Filtro</h3>
 
-<h4>Stacks</h4>
-<app-checkbox-group [items]="stacks" (toggle)="onStacksChange($event)"></app-checkbox-group>
+<div class="my-3">
+    <h4>Stacks</h4>
+    <app-checkbox-group [items]="stacks" (toggle)="onStacksChange($event)"></app-checkbox-group>
+</div>
 
-<h4>Target Market</h4>
-<app-checkbox-group [items]="targetMarket" (toggle)="onTargetMarketChange($event)"></app-checkbox-group>
+<div class="my-3">
+    <h4>Target Market</h4>
+    <app-checkbox-group [items]="targetMarket" (toggle)="onTargetMarketChange($event)"></app-checkbox-group>
+</div>
+
+<button (click)="filtrarProduto()" class="btn btn-primary">Fitrar</button>  
 
 <table class="mt-4 table table-striped">   
     <thead>
@@ -21,9 +27,9 @@
     <tbody>
         <tr *ngFor="let produto of produtos">
           <td><h4>{{ produto.productName}}</h4></td>
-          <td>{{ produto.description}}</td>
-          <td>{{ produto.targetMarket}}</td>
-          <td>{{ produto.stack }}</td>
+          <td>{{ produto.description}}</td>        
+          <td><span *ngFor="let t of produto.targetMarket; last as isTLast">{{t.name}}<span *ngIf="!isTLast">, </span></span></td>
+          <td><span *ngFor="let s of produto.stack; last as isLast">{{s.name}}<span *ngIf="!isLast">, </span></span></td>
         </tr>
     </tbody>
 </table>

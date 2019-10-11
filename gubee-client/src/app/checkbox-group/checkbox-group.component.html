@@ -1,3 +1,5 @@
-<span *ngFor="let item of items">
-    <input type="checkbox" [(ngModel)]="item.checked" (change)="onToggle()">{{item.label}}
-</span>
+<div *ngFor="let item of items; index as i" class="form-check form-check-inline">
+    <input type="checkbox" [(ngModel)]="item.checked" (change)="onToggle()" id="{{componentId}}_{{i}}" 
+    class="form-check-input">
+    <label class="form-check-label" for="{{componentId}}_{{i}}">{{item.label}}</label>
+</div>
