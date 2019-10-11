@@ -1,17 +1,11 @@
 package br.com.gubeeapi;
 
-import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,12 +15,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultActions;
 
 import br.com.gubeeapi.domain.model.Product;
-import br.com.gubeeapi.domain.model.Stack;
-import br.com.gubeeapi.domain.model.TargetMarket;
+import br.com.gubeeapi.domain.repository.StackRepository;
+import br.com.gubeeapi.domain.repository.TargetMarketRepository;
 import br.com.gubeeapi.domain.service.ProductService;
 
 @RunWith(SpringRunner.class)
@@ -38,6 +30,12 @@ public class ProductTest extends AbstractProductTest {
 
 	@MockBean
 	protected ProductService productService;
+	
+	@MockBean
+	protected StackRepository stackRepository;
+	
+	@MockBean
+	protected TargetMarketRepository targetMarketRepository;
 
 	@Test
 	public void getProductsList() throws Exception {
